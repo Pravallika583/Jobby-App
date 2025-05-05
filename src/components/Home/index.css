@@ -30,23 +30,22 @@
   border-radius: 6px;
 }
 
-@media screen and (max-width: 767px){
- .heading{
-  font-size: 20px;
- }
- .description{
-  font-size: 15px;
- }
- .home-content{
-  width: 90%;
- }
- .home-container{
-  padding: 20px;
-  display: inline-block;
-   background-image: url("https://assets.ccbp.in/frontend/react-js/home-sm-bg.png");
-   background-size: cover;
- }
+@media screen and (max-width: 767px) {
+  .heading {
+    font-size: 20px;
+  }
+  .description {
+    font-size: 15px;
+  }
+  .home-content {
+    width: 90%;
+  }
+  .home-container {
+    padding: 20px;
+    display: inline-block;
+    background-image: url('https://assets.ccbp.in/frontend/react-js/home-sm-bg.png');
+    background-size: cover;
+  }
 }
 @media screen and (min-width: 768px) and (max-width: 991px) {
-  
 }

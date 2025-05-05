@@ -5,6 +5,7 @@ import Login from './components/Login'
 import Jobs from './components/Jobs'
 import JobItemDetails from './components/JobItemDetails'
 import NotFound from './components/NotFound'
+import ProtectedRoute from './components/ProtectedRoute'
 
 const employmentTypesList = [
   {
@@ -47,10 +48,10 @@ const salaryRangesList = [
 const App = () => (
   <>
     <Switch>
-      <Route exact path="/" component={Home} />
+      <ProtectedRoute exact path="/" component={Home} />
       <Route exact path="/login" component={Login} />
-      <Route exact path="/jobs" component={Jobs} />
-      <Route exact path="/jobs/:id" component={JobItemDetails} />
+      <ProtectedRoute exact path="/jobs" component={Jobs} />
+      <ProtectedRoute exact path="/jobs/:id" component={JobItemDetails} />
       <Route component={NotFound} />
     </Switch>
   </>
