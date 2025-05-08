@@ -30,7 +30,7 @@ const Header = props => {
           </Link>
         </li>
       </ul>
-      <button className="logout-button" onClick={onLogout}>
+      <button type="button" className="logout-button" onClick={onLogout}>
         Logout
       </button>
       <div className="header-icons">
@@ -40,7 +40,7 @@ const Header = props => {
         <Link to="/jobs">
           <MdWork className="icon" />
         </Link>
-        <button className="logout-icon" onClick={onLogout}>
+        <button type="button" className="logout-icon" onClick={onLogout}>
           <AiOutlineLogout className="icon" />
         </button>
       </div>
