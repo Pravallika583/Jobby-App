@@ -1,0 +1,48 @@
+.filter-container {
+  width: 75%;
+  margin: auto;
+}
+.employment-types-container {
+  color: white;
+  margin-top: 20px;
+}
+
+.salaryrange-types-container {
+  color: white;
+  margin-top: 20px;
+}
+.employment-type {
+  list-style-type: none;
+}
+.salary-type {
+  list-style-type: none;
+}
+.types-of-employment-heading {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.salary-range-heading {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.filter-input {
+  margin-right: 10px;
+}
+
+.input-section {
+  margin-bottom: 10px;
+}
+.line {
+  color: #b6c5ff;
+  height: 2px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 767px){
+  .filter-container{
+    width: 100%;
+  }
+}
