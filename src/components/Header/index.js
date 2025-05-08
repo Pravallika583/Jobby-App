@@ -8,16 +8,18 @@ const Header = props => {
   const onLogout = () => {
     const {history} = props
     Cookies.remove('jwt_token')
-    history.push('/login')
+    history.replace('/login')
   }
 
   return (
     <div className="header-container">
-      <img
-        src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
-        alt="website logo"
-        className="logo"
-      />
+      <Link to="/" className="logo-link">
+        <img
+          src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
+          alt="website logo"
+          className="logo"
+        />
+      </Link>
       <ul className="route-links">
         <li className="route">
           <Link to="/" className="route-link">

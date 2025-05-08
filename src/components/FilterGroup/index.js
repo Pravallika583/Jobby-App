@@ -40,11 +40,12 @@ const salaryRangesList = [
 ]
 class FilterGroup extends Component {
   render() {
+    const {onSelectEmploymentType, onSelectSalaryRange} = this.props
     return (
       <div className="filter-container">
         <hr className="line" />
         <div className="employment-types-container">
-          <p className="types-of-employment-heading">Type of Employment</p>
+          <h1 className="types-of-employment-heading">Type of Employment</h1>
           <ul>
             {employmentTypesList.map(eachType => (
               <li key={eachType.employmentTypeId} className="employment-type">
@@ -53,6 +54,9 @@ class FilterGroup extends Component {
                     type="checkbox"
                     id={eachType.employmentTypeId}
                     className=" filter-input"
+                    onClick={() =>
+                      onSelectEmploymentType(eachType.employmentTypeId)
+                    }
                   />
                   <label htmlFor={eachType.employmentTypeId}>
                     {eachType.label}
@@ -64,7 +68,7 @@ class FilterGroup extends Component {
         </div>
         <hr className="line" />
         <div className="salaryrange-types-container">
-          <p className="salary-range-heading">Salary Range</p>
+          <h1 className="salary-range-heading">Salary Range</h1>
           <ul>
             {salaryRangesList.map(eachType => (
               <li key={eachType.salaryRangeId} className="salary-type">
@@ -74,6 +78,7 @@ class FilterGroup extends Component {
                     name="salary"
                     id={eachType.salaryRangeId}
                     className="filter-input"
+                    onClick={() => onSelectSalaryRange(eachType.salaryRangeId)}
                   />
                   <label htmlFor={eachType.salaryRangeId}>
                     {eachType.label}
