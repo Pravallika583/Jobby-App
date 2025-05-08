@@ -8,6 +8,10 @@
 .logo {
   width: 130px;
 }
+.logo-link {
+  text-decoration: none;
+  cursor: pointer;
+}
 .route-links {
   display: flex;
   align-items: center;
@@ -27,6 +31,7 @@
   border-width: 0px;
   padding: 6px 12px;
   border-radius: 6px;
+  cursor: pointer;
 }
 .header-icons {
   display: none;

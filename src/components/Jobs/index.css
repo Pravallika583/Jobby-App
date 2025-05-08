@@ -27,6 +27,8 @@
   width: 300px;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 .search-field {
   padding: 8px 12px;
@@ -36,11 +38,14 @@
 }
 .search-button {
   all: unset;
+  cursor: pointer;
 }
 .search-icon {
   color: white;
 }
-
+.mobile-search-container {
+  display: none;
+}
 @media screen and (max-width: 767px) {
   .jobs-bg-container {
     flex-direction: column;
@@ -55,5 +60,16 @@
   }
   .search-container {
     width: 100%;
+  }
+  .search-input {
+    width: 100%;
+  }
+  .mobile-search-container {
+    display: block;
+    order: -1;
+    width: 100%;
+  }
+  .desktop-search-container{
+    display: none;
   }
 }

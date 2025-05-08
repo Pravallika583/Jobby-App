@@ -12,8 +12,6 @@ const apiStatusJobsConstants = {
 }
 class JobDetails extends Component {
   state = {
-    employmentType: [],
-    salaryRange: '',
     apiJobsStatus: apiStatusJobsConstants.initial,
     jobsList: [],
   }
@@ -22,10 +20,22 @@ class JobDetails extends Component {
     this.renderJobs()
   }
 
+  componentDidUpdate(prevProps) {
+    const {search, selectedEmploymentType, salaryRange} = this.props
+    if (prevProps.search !== search) {
+      this.renderJobs()
+    }
+    if (prevProps.selectedEmploymentType !== selectedEmploymentType) {
+      this.renderJobs()
+    }
+    if (prevProps.salaryRange !== salaryRange) {
+      this.renderJobs()
+    }
+  }
+
   renderJobs = async () => {
-    const {search} = this.props
+    const {search, selectedEmploymentType, salaryRange} = this.props
     this.setState({apiJobsStatus: apiStatusJobsConstants.inProgress})
-    const {employmentType, salaryRange} = this.state
     const jwtToken = Cookies.get('jwt_token')
     const options = {
       method: 'GET',
@@ -34,7 +44,7 @@ class JobDetails extends Component {
       },
     }
 
-    const url = `https://apis.ccbp.in/jobs?employment_type=${employmentType.join(
+    const url = `https://apis.ccbp.in/jobs?employment_type=${selectedEmploymentType.join(
       ',',
     )}&minimum_package=${salaryRange}&search=${search}`
 
@@ -85,14 +95,34 @@ class JobDetails extends Component {
     </div>
   )
 
+  renderNoJobsView = () => (
+    <div className="no-jobs-view">
+      <img
+        src="https://assets.ccbp.in/frontend/react-js/no-jobs-img.png"
+        alt="no jobs"
+        className="no-jobs-image"
+      />
+      <h1 className="no-jobs-heading">No Jobs Found</h1>
+      <p className="no-jobs-text">
+        We could not find any jobs. Try other filters
+      </p>
+    </div>
+  )
+
   renderJobsList = () => {
     const {jobsList} = this.state
     return (
-      <ul className="jobs-list">
-        {jobsList.map(job => (
-          <JobItem key={job.id} jobDetails={job} />
-        ))}
-      </ul>
+      <>
+        {jobsList.length === 0 ? (
+          this.renderNoJobsView()
+        ) : (
+          <ul className="jobs-list">
+            {jobsList.map(job => (
+              <JobItem key={job.id} jobDetails={job} />
+            ))}
+          </ul>
+        )}
+      </>
     )
   }
 
