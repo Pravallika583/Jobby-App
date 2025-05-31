@@ -23,6 +23,8 @@
 - Job Details: View detailed information about a specific job, including company details and job description.
 - Responsive Design: Optimized for various screen sizes, ensuring a seamless experience on both desktop and mobile devices.
 - Protected Routes: Ensures that only authenticated users can access certain routes within the application.
+- Not Found: Routes that do not exist lead to a custom 404 page with a user-friendly message and navigation options.
+- Empty Results State: If search or filter combinations return no jobs, users see a helpful message suggesting they reset the filters or try different keywords.
 
 # Login Credentials
 
